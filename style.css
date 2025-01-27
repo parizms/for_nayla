@@ -1,0 +1,232 @@
+body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+   background-color: #ffe6e6;
+   color: #ff3366;
+   margin: 0;
+   padding: 0;
+}
+
+.container {
+   margin-top: 20vh;
+}
+
+button {
+   background-color: #ff3366;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   font-size: 16px;
+   border-radius: 8px;
+   cursor: pointer;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+   background-color: #ff6699;
+}
+
+.hidden {
+   display: none;
+}
+
+#loveMessage {
+   margin-top: 20px;
+   font-size: 18px;
+   position: relative; /* Pastikan elemen ini memiliki posisi */
+   z-index: 10; /* Z-index lebih tinggi dari elemen lainnya */
+  }
+  
+}
+
+@keyframes slideUp {
+   0% {
+       transform: translateY(100%);
+       opacity: 0;
+   }
+   100% {
+       transform: translateY(0);
+       opacity: 1;
+   }
+}
+
+#loveMessage p {
+   animation: slideUp 2s ease-out;
+   opacity: 0;
+   animation-fill-mode: forwards; /* Memastikan teks tetap di tempat setelah animasi selesai */
+}
+
+/* Hati yang melayang */
+.heart-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none; /* Tidak mengganggu klik pengguna */
+   overflow: hidden;
+   z-index: -1;
+}
+
+.heart {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   background-color: red;
+   transform: rotate(45deg);
+   animation: floatUp 5s infinite ease-in-out;
+   opacity: 0.7;
+}
+
+.heart::before,
+.heart::after {
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: red;
+   border-radius: 50%;
+}
+
+.heart::before {
+   top: -50%;
+   left: 0;
+}
+
+.heart::after {
+   left: -50%;
+   top: 0;
+}
+
+/* Animasi melayang ke atas */
+@keyframes floatUp {
+   0% {
+       transform: translateY(100vh) scale(0.5) rotate(45deg);
+       opacity: 0;
+   }
+   50% {
+       opacity: 1;
+   }
+   100% {
+       transform: translateY(-10%) scale(1.5) rotate(45deg);
+       opacity: 0;
+   }
+}
+
+@keyframes sparkle {
+   0% {
+       opacity: 0.5;
+       transform: scale(1);
+   }
+   50% {
+       opacity: 1;
+       transform: scale(1.5);
+   }
+   100% {
+       opacity: 0;
+       transform: scale(1);
+   }
+}
+
+.sparkle {
+   position: absolute;
+   width: 10px;
+   height: 10px;
+   background-color: gold;
+   border-radius: 50%;
+   animation: sparkle 1.5s infinite ease-in-out;
+}
+
+body {
+   background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+   background-size: 400% 400%;
+   animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+   0% {
+       background-position: 0% 50%;
+   }
+   50% {
+       background-position: 100% 50%;
+   }
+   100% {
+       background-position: 0% 50%;
+   }
+}
+
+#loveMessage p {
+   color: red;
+   font-size: 1.5rem;
+   text-shadow: 0 0 5px #ff55da, 0 0 10px white, 0 0 15px #fdfdfd, 0 0 20px #fdfdfd;
+   animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+   0% {
+       text-shadow: 0 0 5px #fdfdfd, 0 0 10px #fdfdfd, 0 0 15px #fdfdfd, 0 0 20px #fdfdfd;
+   }
+   100% {
+       text-shadow: 0 0 5px #fdfdfd, 0 0 15px #fdfdfd, 0 0 20px #fdfdfd, 0 0 25px #ffffff;
+   }
+}
+
+.heart {
+   animation: floatUp 5s infinite ease-in-out, fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+   0% {
+       opacity: 0;
+   }
+   100% {
+       opacity: 1;
+   }
+}
+
+.particle-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+}
+
+.particle {
+   position: absolute;
+   width: 5px;
+   height: 5px;
+   background: gold;
+   border-radius: 50%;
+   animation: particleFade 1s ease-out forwards;
+}
+
+@keyframes particleFade {
+   0% {
+       opacity: 1;
+   }
+   100% {
+       opacity: 0;
+       transform: scale(0.5);
+   }
+}
+
+.heart-container, .particle-container {
+   z-index: 5; /* Lebih rendah dari elemen teks */
+}
+
+@keyframes fadeInText {
+   0% {
+       opacity: 0;
+       transform: translateY(20px);
+   }
+   100% {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+#loveMessage p {
+   animation: fadeInText 2s ease forwards;
+}
